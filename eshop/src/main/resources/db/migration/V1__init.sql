@@ -14,6 +14,7 @@ Create table order_status(
 
 Create table orders (
     id bigserial primary key,
+    id_order bigint,
     created_at timestamp default current_timestamp,
     status_id bigint references order_status(id),
     user_id bigint references   users(id),
