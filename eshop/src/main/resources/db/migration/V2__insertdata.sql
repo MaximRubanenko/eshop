@@ -1,16 +1,16 @@
-insert into order_status (title) values
-('Created'),
-('Booked'),
-('Paid'),
-('Delivered'),
-('Canceled');
+--insert into order_status (title) values
+--('Created'),
+--('Booked'),
+--('Paid'),
+--('Delivered'),
+--('Canceled');
 
-insert into categories (title) values
-('Food'),
-('Furniture'),
-('Tools'),
-('Music'),
-('Electronics');
+--insert into categories (title) values
+--('Food'),
+--('Furniture'),
+--('Tools'),
+--('Music'),
+--('Electronics');
 
 
 insert into products (title,price,enabled) values
