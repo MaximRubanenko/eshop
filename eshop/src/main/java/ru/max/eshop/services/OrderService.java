@@ -17,9 +17,11 @@ public class OrderService {
   private final CartService cartService;
 
   public void saveCartToOrder(){
-    Cart cart = cartService.showAllItemsInCart();
+//    Cart cart = cartService.showAllItemsInCart();
     Orders order = new Orders();
-    order.setIduser(20L);
+//    order.setId(1L);
+    order.setUserid(77L);
+    order.setProducts(cartService.showAllItemsInCart().getItems());
     orderRepository.save(order);
   }
 
