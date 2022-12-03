@@ -46,7 +46,7 @@ public class Products {
       inverseJoinColumns = @JoinColumn(name = "id_order")
   )
 
-  @JsonIgnore
+//  @JsonIgnore
   private List<Orders> orders;
 
 
