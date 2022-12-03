@@ -3,10 +3,7 @@ package ru.max.eshop.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.max.eshop.entities.Cart;
-import ru.max.eshop.entities.Product;
-
-import java.util.List;
-import java.util.Optional;
+import ru.max.eshop.entities.Products;
 
 /**
  * Rubanenko Maxim
@@ -19,7 +16,7 @@ public class CartService {
   private final Cart cart;
 
   public void addItemToCartById(Long id) {
-    Product product = productService.myFindId(id).get();
+    Products product = productService.myFindId(id).get();
     cart.getItems().add(product);
   }
 

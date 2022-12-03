@@ -24,6 +24,8 @@ insert into products (title,price,enabled) values
 ('Piano',2300.50,true),
 ('Guitar',1700.50,true);
 
+
+
 --insert into products (title,price,category_id) values
 --('Bread',54.12,1),
 --('Butter',32.10,1),

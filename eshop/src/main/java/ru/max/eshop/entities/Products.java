@@ -2,9 +2,13 @@ package ru.max.eshop.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Rubanenko Maxim
@@ -25,11 +29,20 @@ import java.sql.Timestamp;
 @Table(name = "products")
 @NoArgsConstructor
 @Data
-public class Product {
+public class Products {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "order_product",
+      joinColumns = @JoinColumn(name = "id_product"),
+      inverseJoinColumns = @JoinColumn(name = "id_order")
+  )
+  private List<Orders> orders;
+
+
 
   @Column(name = "title")
   private String title;
