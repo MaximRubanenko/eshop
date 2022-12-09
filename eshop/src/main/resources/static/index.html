@@ -1,0 +1,88 @@
+<!doctype html>
+<html ng-app="eshop">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+
+<div class="container" ng-controller="indexController">
+
+    <p></p>
+    <h1>Магазин хороших товаров</h1>
+    <p></p>
+
+    <div>
+<!--        <div class="col" >-->
+        <div class="col -3" >
+            <h4>Список товаров</h4>
+            <p></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Категория</td>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="p in products">
+                    <td>{{p.id}}</td>
+                    <td>{{p.categoryTitle}}</td>
+                    <td>{{p.title}}</td>
+                    <td>{{p.cost}}</td>
+                    <td><button type="button" class="btn btn-secondary" ng-click = "addProductToCart(p.id)" >В корзину</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col" >
+            <table>
+                <tr>
+                    <td></td>
+                    <td>{{cart.totalPrice}}</td>
+                    <td><button type="button" class="btn btn-danger" ng-click = "clearCart()">Очистить корзину</button></td>
+                    <td><button type="button" class="btn btn-secondary" ng-click = "saveCartToOrder()">Заказать</button></td>
+                </tr>
+            </table>
+            <h4>Корзина</h4>
+            <p></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Категория</td>
+                    <td>Название</td>
+                    <td>Цена на шт.</td>
+                    <td>Количество</td>
+                    <td>Цена за все</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat= "i in cart.items" >
+                    <td>{{i.productId}}</td>
+                    <td>{{i.categoryTitle}}</td>
+                    <td>{{i.productTitle}}</td>
+                    <td>{{i.pricePerProduct}}</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary" ng-click = "minusProductInCart(i.productId)">-</button>
+                        {{i.quantity}}
+                        <button type="button" class="btn btn-secondary" ng-click = "incProductInCart(i.productId)">+</button>
+                        </td>
+
+                    <td>{{i.totalPriceForAllPosition}}</td>
+                    <td> <button type="button" class="btn btn-danger" ng-click = "delProductFromCartById(i.productId)">Удалить</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</html>

@@ -2,6 +2,7 @@ package ru.max.eshop.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.max.eshop.dtos.CartDto;
 import ru.max.eshop.entities.Cart;
 import ru.max.eshop.entities.Products;
 
@@ -13,7 +14,7 @@ import ru.max.eshop.entities.Products;
 @RequiredArgsConstructor
 public class CartService {
   private final ProductService productService;
-  private final Cart cart;
+    private final Cart cart;
 
   public void addItemToCartById(Long id) {
     Products product = productService.myFindId(id).get();

@@ -1,11 +1,16 @@
 package ru.max.eshop.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -40,24 +45,28 @@ public class Products {
       joinColumns = @JoinColumn(name = "id_product"),
       inverseJoinColumns = @JoinColumn(name = "id_order")
   )
-  private List<Orders> orders;
 
+//  @JsonIgnore
+  private List<Orders> orders;
 
 
   @Column(name = "title")
   private String title;
 
   @Column(name = "price")
-  private Float price;
+  private BigDecimal price;
 
-//  @Column(name = "category_id")
-//  private Long category_id;
+  @ManyToOne
+  @JoinColumn(name = "category_id")
+  private Category category;
 
   @Column(name = "created_at")
-  private Timestamp created_at;
+  @CreationTimestamp
+  private LocalDateTime created_at;
 
+  @UpdateTimestamp
   @Column(name = "updated_at")
-  private Timestamp updated_at;
+  private LocalDateTime updated_at;
 
   @Column(name = "enabled")
   private Boolean enabled;

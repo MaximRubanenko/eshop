@@ -2,9 +2,12 @@ package ru.max.eshop.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -45,8 +48,9 @@ public class Orders {
   private Long userid;
 
   @Column(name = "created_at")
-  private Timestamp created_at;
+  @CreationTimestamp
+  private LocalDateTime created_at;
 
   @Column(name = "cost")
-  private Float cost;
+  private BigDecimal cost;
 }

@@ -17,6 +17,7 @@ import java.util.Optional;
 public class ProductService {
 
   private final ProductRepository productRepository;
+
   public List<Products> myFindAll(){
     return productRepository.findAll();
   }
