@@ -18,24 +18,24 @@ import ru.max.eshop.services.CartService;
 @RequestMapping("/api/V1/cart")
 @RequiredArgsConstructor
 public class CartController {
-  private final CartService cartService;
-  private final CartConverter cartConverter;
+//  private final CartService cartService;
+//  private final CartConverter cartConverter;
 
-  @GetMapping("/add/{id}")
-    public void addItemToCartById(@PathVariable Long id) {
-    cartService.addItemToCartById(id);
-  }
-
-  @GetMapping("/del/{id}")
-  public void delItemFromCartById (@PathVariable Long id) {
-    cartService.delItemFromCartById(id);
-
-  }
-
-  @GetMapping("/all")
-  public CartDto showAllItemsInCart() {
-    return cartConverter.entityToDto(cartService.showAllItemsInCart());
-  }
+//  @GetMapping("/add/{id}")
+//    public void addItemToCartById(@PathVariable Long id) {
+//    cartService.addItemToCartById(id);
+//  }
+//
+//  @GetMapping("/del/{id}")
+//  public void delItemFromCartById (@PathVariable Long id) {
+//    cartService.delItemFromCartById(id);
+//
+//  }
+//
+//  @GetMapping("/all")
+//  public CartDto showAllItemsInCart() {
+//    return cartConverter.entityToDto(cartService.showAllItemsInCart());
+//  }
 
 
 }

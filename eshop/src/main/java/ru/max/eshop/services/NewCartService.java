@@ -1,6 +1,7 @@
 package ru.max.eshop.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.max.eshop.entities.Products;
 import ru.max.eshop.utils.CartNew;

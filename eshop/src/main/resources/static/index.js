@@ -52,7 +52,7 @@ angular.module('eshop', []).controller('indexController', function ($scope, $htt
     $scope.saveCartToOrder= function() {
             $http.get('http://localhost:8189/eshop/api/V1/order/save')
             .then(function(response){
-
+                $scope.clearCart();
             });
             $scope.fillTable();
     }
